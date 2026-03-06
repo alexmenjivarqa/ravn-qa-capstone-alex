@@ -30,7 +30,7 @@ class ContactPage extends BasePage {
     }
 
     async fillEmail(email) {
-        await this.emailInput.fill(email)
+        await this.emailContactInput.fill(email)
     }
 
     async selectTopic(topic) {
@@ -56,7 +56,7 @@ class ContactPage extends BasePage {
         return {
             contactHeading: await this.contactHeading.isVisible(),
             nameInput: await this.nameInput.isVisible(),
-            emailInput: await this.emailInput.isVisible(),
+            emailInput: await this.emailContactInput.isVisible(),
             topicDropdown: await this.topicDropdown.isVisible(),
             messageInput: await this.messageInput.isVisible(),
             sendMessageButton: await this.sendMessageButton.isVisible()
