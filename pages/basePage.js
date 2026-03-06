@@ -3,10 +3,10 @@ class BasePage {
         this.page = page
 
         // Locators
-        this.featuresLink = page.getByRole('link', { name: 'Features' })
-        this.pricingLink = page.getByRole('link', { name: 'Pricing' })
-        this.contactLink = page.getByRole('link', { name: 'Contact' })
-        this.getStartedButton = page.getByRole('link', { name: 'Get Started' })
+        this.featuresLink = page.locator('nav').getByRole('link', { name: 'Features' })
+        this.pricingLink = page.locator('nav').getByRole('link', { name: 'Pricing' })
+        this.contactLink = page.locator('nav').getByRole('link', { name: 'Contact' })
+        this.getStartedButton = page.locator('nav').getByRole('link', { name: 'Get Started' })
     }
 
     async navigate(url) {
