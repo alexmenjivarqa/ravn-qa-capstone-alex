@@ -7,7 +7,7 @@ const { LoginPage } = require('../pages/loginPage')
 
 test.describe('Navigation and CTA Journey', () => {
 
-    // NTC_001
+    // NTC_001 - Happy path
     test('Navbar displays all navigation items when homepage loads', async ({ page }) => {
         const homePage = new HomePage(page)
         await homePage.goto()
@@ -18,7 +18,7 @@ test.describe('Navigation and CTA Journey', () => {
         expect(await homePage.getStartedButton.isVisible()).toBe(true)
     })
 
-    // NTC_002
+    // NTC_002 - Happy path
     test('Clicking Features in the navbar, navigates to the Features section', async ({ page }) => {
         const homePage = new HomePage(page)
         await homePage.goto()
@@ -28,7 +28,7 @@ test.describe('Navigation and CTA Journey', () => {
         await expect(page).toHaveURL('/#features')
     })
 
-    // NTC_003
+    // NTC_003 - Happy path
     test('Clicking Pricing in the navbar, navigates to the Pricing section', async ({ page }) => {
         const homePage = new HomePage(page)
         await homePage.goto()
@@ -38,7 +38,7 @@ test.describe('Navigation and CTA Journey', () => {
         await expect(page).toHaveURL('/#pricing')
     })
 
-    // NTC_004
+    // NTC_004 - Happy path
     test('Clicking Contact in the navbar, navigates to the Contact section', async ({ page }) => {
         const homePage = new HomePage(page)
         await homePage.goto()
@@ -48,7 +48,7 @@ test.describe('Navigation and CTA Journey', () => {
         await expect(page).toHaveURL('/#contact')
     })
 
-    // NTC_005
+    // NTC_005 - Happy path
     test('Get Started CTA button redirects to the login page', async ({ page }) => {
         const homePage = new HomePage(page)
         await homePage.goto()
@@ -123,7 +123,7 @@ test.describe('Navigation and CTA Journey', () => {
         await expect(page).toHaveURL('/#contact')
     })
 
-    // NTC_010 - Negative Scenario
+    // NTC_010 - Negative scenario
     test('Contact form does not submit when all fields are empty', async ({ page }) => {
         const contactPage = new ContactPage(page)
         await contactPage.goto()
