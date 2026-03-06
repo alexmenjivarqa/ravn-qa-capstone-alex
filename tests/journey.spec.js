@@ -16,6 +16,7 @@ test.describe('Navigation and CTA Journey', () => {
         expect(await homePage.pricingLink.isVisible()).toBe(true)
         expect(await homePage.contactLink.isVisible()).toBe(true)
         expect(await homePage.getStartedButton.isVisible()).toBe(true)
+        //optimizar esta parte, agrupar!
     })
 
     // NTC_002 - Happy path
