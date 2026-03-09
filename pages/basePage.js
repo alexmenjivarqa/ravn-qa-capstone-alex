@@ -30,4 +30,4 @@ class basePage {
     }
 }
 
-module.exports = { basePage }
+module.exports = { BasePage }
