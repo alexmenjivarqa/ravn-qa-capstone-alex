@@ -5,6 +5,17 @@ const { PricingPage } = require('../pages/pricingPage')
 const { ContactPage } = require('../pages/contactPage')
 
 test.describe('Navigation and CTA Journey - Edge Cases', () => {
+    let homePage
+    let featuresPage
+    let pricingPage
+    let contactPage
+
+    test.beforeEach(async ({ page }) => {
+        homePage = new HomePage(page)
+        featuresPage = new FeaturesPage(page)
+        pricingPage = new PricingPage(page)
+        contactPage = new ContactPage(page)
+    })
 
     // NTC_006
     test('Direct URL with anchor navigates to the correct section', async ({ page }) => {

@@ -2,6 +2,12 @@ const { test, expect } = require('@playwright/test')
 const { ContactPage } = require('../pages/contactPage')
 
 test.describe('Navigation and CTA Journey - Negative Scenarios', () => {
+    let contactPage
+
+    test.beforeEach(async ({ page }) => {
+        contactPage = new ContactPage(page)
+        await contactPage.goto()
+    })
 
     // NTC_009
     test('Contact form submits without validating invalid email format', async ({ page }) => {

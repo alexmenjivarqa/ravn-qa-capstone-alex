@@ -2,6 +2,12 @@ const { test, expect } = require('@playwright/test')
 const { HomePage } = require('../pages/homePage')
 
 test.describe('Navigation and CTA Journey - Happy Path', () => {
+    let homePage
+
+    test.beforeEach(async ({ page }) => {
+        homePage = new HomePage(page)
+        await homePage.goto()
+    })
 
     // NTC_001
     test('Navbar displays all navigation items when homepage loads', async ({ page }) => {
