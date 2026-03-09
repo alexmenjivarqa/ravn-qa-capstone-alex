@@ -40,7 +40,7 @@ npx playwright show-report
 - `tests/` - Test files containing all automated test cases
   - `journey.spec.js` - Main user journey tests (10 test cases)
 - `pages/` - Page Object Model classes
-  - `BasePage.js` - Shared navigation methods inherited by all pages
+  - `basePage.js` - Shared navigation methods inherited by all pages
   - `HomePage.js` - Hero section and CTA buttons
   - `FeaturesPage.js` - Features section verification
   - `PricingPage.js` - Pricing plans and CTAs

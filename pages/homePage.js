@@ -1,6 +1,6 @@
-const { BasePage } = require('./basePage')
+const { basePage } = require('./basePage')
 
-class HomePage extends BasePage {
+class HomePage extends basePage {
     constructor(page) {
         super(page)
 
@@ -31,6 +31,23 @@ class HomePage extends BasePage {
     async isHeadingVisible() {
         return await this.heroHeading.isVisible()
     }
+
+    async clickGetStarted() {
+        await this.getStartedButton.click()
+    }
+
+    async clickFeatures() {
+        await this.featuresLink.click()
+    }
+
+    async clickPricing() {
+        await this.pricingLink.click()
+    }
+
+    async clickContact() {
+        await this.contactLink.click()
+    }
+
 }
 
 module.exports = { HomePage }

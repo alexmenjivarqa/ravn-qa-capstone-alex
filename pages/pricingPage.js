@@ -1,6 +1,6 @@
-const { BasePage } = require('./basePage')
+const { basePage } = require('./basePage')
 
-class PricingPage extends BasePage {
+class PricingPage extends basePage {
     constructor(page) {
         super(page)
 
