@@ -1,4 +1,4 @@
-class BasePage {
+class basePage {
     constructor(page) {
         this.page = page
 
@@ -30,4 +30,4 @@ class BasePage {
     }
 }
 
-module.exports = { BasePage }
+module.exports = { basePage }
