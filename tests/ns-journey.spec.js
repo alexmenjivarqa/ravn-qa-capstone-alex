@@ -3,7 +3,7 @@ const { ContactPage } = require('../pages/contactPage')
 
 test.describe('Navigation and CTA Journey - Negative Scenarios', () => {
 
-    // NTC_009 - Negative scenario
+    // NTC_009
     test('Contact form submits without validating invalid email format', async ({ page }) => {
         const contactPage = new ContactPage(page)
         await contactPage.goto()
@@ -18,7 +18,7 @@ test.describe('Navigation and CTA Journey - Negative Scenarios', () => {
         await expect(page).toHaveURL('/#contact')
     })
 
-    // NTC_010 - Negative scenario
+    // NTC_010
     test('Contact form does not submit when all fields are empty', async ({ page }) => {
         const contactPage = new ContactPage(page)
         await contactPage.goto()

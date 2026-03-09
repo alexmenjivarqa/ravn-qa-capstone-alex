@@ -6,7 +6,7 @@ const { ContactPage } = require('../pages/contactPage')
 
 test.describe('Navigation and CTA Journey - Edge Cases', () => {
 
-    // NTC_006 - Edge Case
+    // NTC_006
     test('Direct URL with anchor navigates to the correct section', async ({ page }) => {
         const featuresPage = new FeaturesPage(page)
         const pricingPage = new PricingPage(page)
@@ -28,7 +28,7 @@ test.describe('Navigation and CTA Journey - Edge Cases', () => {
         expect(await contactPage.contactHeading.isVisible()).toBe(true)
     })
 
-    // NTC_007 - Edge Case
+    // NTC_007
     test('Invalid anchor URL does not crash or break the page', async ({ page }) => {
         const homePage = new HomePage(page)
 
@@ -42,7 +42,7 @@ test.describe('Navigation and CTA Journey - Edge Cases', () => {
         expect(await homePage.getStartedButton.isVisible()).toBe(true)
     })
 
-    // NTC_008 - Edge Case
+    // NTC_008
     test('Contact form accepts special characters in the name field', async ({ page }) => {
         const contactPage = new ContactPage(page)
         await contactPage.goto()
