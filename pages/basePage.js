@@ -1,7 +1,4 @@
-import { expect } from '@playwright/test';
-
-export class basePage {
-
+class basePage {
     constructor(page) {
         this.page = page
     }
@@ -19,4 +16,4 @@ export class basePage {
     }
 }
 
-module.exports = { basePage, expect }
+module.exports = { basePage }
