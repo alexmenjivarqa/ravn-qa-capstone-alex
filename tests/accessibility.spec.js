@@ -1,5 +1,5 @@
-const { test } = require('@playwright/test')
-const { checkA11y, injectAxe } = require('@axe-core/playwright')
+const { test, expect } = require('@playwright/test')
+const { AxeBuilder } = require('@axe-core/playwright')
 
 const pages = [
     { name: 'Homepage', url: '/' },
@@ -15,10 +15,12 @@ test.describe('Accessibility Tests - WCAG 2.1 Level AA', () => {
         test(`${name} passes WCAG 2.1 AA accessibility audit`, async ({ page }) => {
             await page.goto(url)
             await page.waitForLoadState('networkidle')
-            await injectAxe(page)
-            await checkA11y(page, null, {
-                runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa'] }
-            })
+
+            const results = await new AxeBuilder({ page })
+                .withTags(['wcag2a', 'wcag2aa'])
+                .analyze()
+
+            expect(results.violations).toEqual([])
         })
     }
 })
