@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { AxeBuilder } = require('@axe-core/playwright')
 const fs = require('fs')
+const path = require('path')
 
 const pages = [
     { name: 'Homepage', url: '/' },
@@ -25,12 +26,18 @@ test.describe('Accessibility Tests - WCAG 2.1 Level AA', () => {
                 .withTags(['wcag2a', 'wcag2aa'])
                 // Known false positive - color-contrast rule excluded
                 // Reason: All primary buttons have contrast ratio of 4.46 vs required 4.5:1
+                // Documented in WCAG 2.1 Compliance Report criterion 1.4.3
+                // Pending fix from development team - background color #6366f1 needs adjustment
                 .disableRules(['color-contrast'])
                 .analyze()
 
+            // Create folder if it doesn't exist (needed for CI/CD)
+            const reportsDir = path.join(__dirname, '..', 'accessibility-reports')
+            fs.mkdirSync(reportsDir, { recursive: true })
+
             // Save violations to HTML report
             fs.writeFileSync(
-                `accessibility-reports/accessibility-report-${name.replace(/ /g, '-').toLowerCase()}.html`,
+                path.join(reportsDir, `accessibility-report-${name.replace(/ /g, '-').toLowerCase()}.html`),
                 buildReport(name, results.violations)
             )
 
